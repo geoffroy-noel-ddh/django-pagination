@@ -1,7 +1,6 @@
 {% if is_paginated %}
 {% load i18n %}
-<div class="pagination">
-    <ul>
+    <ul class="pagination">
     {% if page_obj.has_previous %}
         <li><a href="?page={{ page_obj.previous_page_number }}{{ getvars }}{{ hashtag }}" class="prev">&lsaquo;&lsaquo; {% trans "previous" %}</a></li>
     {% else %}
@@ -22,5 +21,4 @@
         <li class="next disabled"><a>{% trans "next" %} &rsaquo;&rsaquo;</a></li>
     {% endif %}
 	</ul>
-</div>
 {% endif %}

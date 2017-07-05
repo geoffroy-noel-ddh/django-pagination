@@ -14,4 +14,4 @@ class PaginationMiddleware(object):
     it exists in either **GET** or **POST** portions of the request.
     """
     def process_request(self, request):
-        request.__class__.page = property(get_page)
+        request.__class__.pagination_index = property(get_page)
