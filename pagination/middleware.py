@@ -4,14 +4,16 @@ def get_page(self):
     integer representing the current page.
     """
     try:
-        return int(self.REQUEST['page'])
+        return int(self.POST.get('page', self.GET.get('page', 1)))
     except (KeyError, ValueError, TypeError):
         return 1
+
 
 class PaginationMiddleware(object):
     """
     Inserts a variable representing the current page onto the request object if
     it exists in either **GET** or **POST** portions of the request.
     """
+
     def process_request(self, request):
         request.__class__.pagination_index = property(get_page)
